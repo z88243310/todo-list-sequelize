@@ -4,12 +4,10 @@ const router = express.Router()
 const db = require('../../models')
 const Todo = db.Todo
 
-router.get('/', (req, res) => {
-  return Todo.findAll({
-    raw: true,
-    next: true
-  })
-    .then(todos => res.render('index', { todos }))
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  return Todo.findByPk(id)
+    .then(todo => res.render('detail', { todo: todo.toJSON() }))
     .catch(error => res.status(422).json(error))
 })
 
