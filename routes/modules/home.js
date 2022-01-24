@@ -7,7 +7,7 @@ const Todo = db.Todo
 router.get('/', (req, res) => {
   return Todo.findAll({
     raw: true,
-    next: true
+    nest: true
   })
     .then(todos => res.render('index', { todos }))
     .catch(error => res.status(422).json(error))
