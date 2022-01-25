@@ -1,9 +1,7 @@
 'use strict'
-
-'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn('Todos', 'userId', {
+    return queryInterface.addColumn('Todos', 'UserId', {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {
@@ -13,6 +11,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn('Todos', 'userId')
+    return queryInterface.removeColumn('Todos', 'UserId')
   }
 }
